@@ -6,6 +6,7 @@ Endpoints:
 /register --> POST = user
 /profile/:userId --> GET = user
 /image --> PUT = update user
+/imageurl --> POST = utiliza Clarifai API
 
 */ 
 
@@ -19,6 +20,7 @@ const signin = require('./controllers/signin');
 const profile = require('./controllers/profile');
 const image = require('./controllers/image');
 
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0;
 const database = knex({
     client: 'pg',
     connection: {
